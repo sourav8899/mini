@@ -5,6 +5,10 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mini_2/category_card.dart';
+import 'package:mini_2/onboarding_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'bottom.dart';
 
 class homepage extends StatefulWidget {
   const homepage({super.key});
@@ -70,7 +74,16 @@ class _homepageState extends State<homepage> {
                     decoration: BoxDecoration(
                         color: Colors.green[50],
                         borderRadius: BorderRadius.circular(15)),
-                    child: Icon(Icons.person_2))
+                    child: InkWell(
+                        onTap: () async {
+                          final pref = await SharedPreferences.getInstance();
+                          final showhome = pref.getBool('showHome') ?? true;
+                          Navigator.pushReplacement(context,
+                              MaterialPageRoute(builder: (context) {
+                            return onBoardingScreen();
+                          }));
+                        },
+                        child: Icon(Icons.person_2)))
               ],
             ),
           ),

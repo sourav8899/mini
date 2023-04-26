@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:mini_2/about.dart';
 import 'package:mini_2/home.dart';
 import 'package:mini_2/homepage1.dart';
 import 'package:mini_2/intropage1.dart';
@@ -17,7 +18,7 @@ class Bottom extends StatefulWidget {
 
 class BottomState extends State<Bottom> {
   int _index = 0;
-  final screens = [homepage(), Home(), intropage1()];
+  final screens = [homepage(), Home(), Aboutus()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +30,6 @@ class BottomState extends State<Bottom> {
           gap: 8,
           selectedIndex: _index,
           iconSize: 22,
-          
           onTabChange: (index) {
             setState(() {
               _index = index;

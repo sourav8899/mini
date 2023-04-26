@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'onboarding_screen.dart';
 
 Future<void> main() async {
-   WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
   final pref = await SharedPreferences.getInstance();
   final showhome = pref.getBool('showHome') ?? false;
   runApp(MyApp(showhome: showhome));
@@ -14,15 +14,15 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   final bool showhome;
   const MyApp({
-    Key?key,
+    Key? key,
     required this.showhome,
-   }):super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:showhome?Bottom():onBoardingScreen(),
+      home: showhome ? Bottom() : onBoardingScreen(),
     );
   }
 }

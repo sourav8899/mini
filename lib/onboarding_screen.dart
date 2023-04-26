@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mini_2/bottom.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -45,7 +46,23 @@ class _onBoardingScreenState extends State<onBoardingScreen> {
                     onTap: () {
                       _controller.jumpToPage(2);
                     },
-                    child: Text("skip"),
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 211, 237, 211),
+                        border: Border.all(
+                            color: Color.fromARGB(255, 211, 237, 211),
+                            width: 10),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          "Skip",
+                          style: GoogleFonts.notoSansMono(
+                              fontWeight: FontWeight.w400, fontSize: 20),
+                        ),
+                      ),
+                    ),
                   ),
                   SmoothPageIndicator(
                     controller: _controller,
@@ -61,7 +78,22 @@ class _onBoardingScreenState extends State<onBoardingScreen> {
                               return Bottom();
                             }));
                           },
-                          child: Text("done"),
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              color: Colors.green,
+                              border:
+                                  Border.all(color: Colors.green, width: 10),
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                "Lets Go!",
+                                style: GoogleFonts.notoSansMono(
+                                    fontWeight: FontWeight.w400, fontSize: 20),
+                              ),
+                            ),
+                          ),
                         )
                       : GestureDetector(
                           onTap: () {
@@ -69,7 +101,23 @@ class _onBoardingScreenState extends State<onBoardingScreen> {
                                 duration: Duration(milliseconds: 100),
                                 curve: Curves.easeIn);
                           },
-                          child: Text("next"),
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              color: Color.fromARGB(255, 211, 237, 211),
+                              border: Border.all(
+                                  color: Color.fromARGB(255, 211, 237, 211),
+                                  width: 10),
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                "next",
+                                style: GoogleFonts.notoSansMono(
+                                    fontWeight: FontWeight.w400, fontSize: 20),
+                              ),
+                            ),
+                          ),
                         )
                 ],
               ))
