@@ -25,7 +25,7 @@ class intropage3 extends StatelessWidget {
                 style: GoogleFonts.notoSansMono(
                   color: Color.fromARGB(255, 90, 173, 20),
                   fontWeight: FontWeight.w900,
-                  fontSize: 40,
+                  fontSize: 35,
                   shadows: <Shadow>[
                     Shadow(
                       offset: Offset(2.0, 6.0),
@@ -47,6 +47,7 @@ class intropage3 extends StatelessWidget {
                   fontSize: 16),
             ),
           ),
+          
         ]),
       )),
     );

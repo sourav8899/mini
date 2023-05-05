@@ -16,7 +16,7 @@ class intropage1 extends StatelessWidget {
           Image.asset("assets/images/17.png"),
           Container(
             child: Text(
-              "WasteWizard",
+              "Waste wise",
               style: GoogleFonts.notoSansMono(
                 color: Color.fromARGB(255, 90, 173, 20),
                 fontWeight: FontWeight.w900,
@@ -45,7 +45,7 @@ class intropage1 extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(left: 45, right: 35, top: 20, bottom: 2),
+            padding: EdgeInsets.only(left: 40, right: 35, top: 20, bottom: 2),
             child: Text(
               "Team Members:Amiyanshu, Shreyashu, Shreyash, Sourav ",
               style: GoogleFonts.notoSansMono(

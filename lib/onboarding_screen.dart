@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mini_2/bottom.dart';
+import 'package:mini_2/intropage4.dart';
+import 'package:mini_2/variables.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'intropage1.dart';
@@ -28,23 +30,19 @@ class _onBoardingScreenState extends State<onBoardingScreen> {
             controller: _controller,
             onPageChanged: (index) {
               setState(() {
-                onlast = (index == 2);
+                onlast = (index == 3);
               });
             },
-            children: [
-              intropage1(),
-              intropage2(),
-              intropage3(),
-            ],
+            children: [intropage1(), intropage2(), intropage3(), intropage4()],
           ),
           Container(
-              alignment: Alignment(0, 0.75),
+              alignment: Alignment(0, 0.8),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   GestureDetector(
                     onTap: () {
-                      _controller.jumpToPage(2);
+                      _controller.jumpToPage(3);
                     },
                     child: DecoratedBox(
                       decoration: BoxDecoration(
@@ -66,17 +64,21 @@ class _onBoardingScreenState extends State<onBoardingScreen> {
                   ),
                   SmoothPageIndicator(
                     controller: _controller,
-                    count: 3,
+                    count: 4,
                   ),
                   onlast
                       ? GestureDetector(
                           onTap: () async {
-                            final pref = await SharedPreferences.getInstance();
-                            pref.setBool('showHome', true);
-                            Navigator.pushReplacement(context,
-                                MaterialPageRoute(builder: (context) {
-                              return Bottom();
-                            }));
+                            if (name != "") {
+                              final pref =
+                                  await SharedPreferences.getInstance();
+                              pref.setBool('showHome', true);
+                              Navigator.pushReplacement(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return Bottom();
+                              }));
+                            }
+                            ;
                           },
                           child: DecoratedBox(
                             decoration: BoxDecoration(

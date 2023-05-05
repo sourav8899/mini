@@ -5,7 +5,9 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mini_2/category_card.dart';
+import 'package:mini_2/column.dart';
 import 'package:mini_2/onboarding_screen.dart';
+import 'package:mini_2/variables.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'bottom.dart';
@@ -53,7 +55,7 @@ class _homepageState extends State<homepage> {
                             ),
                           ],
                         ))),
-                    Text("sourav",
+                    Text(name,
                         style: GoogleFonts.notoSansMono(
                             textStyle: TextStyle(
                           fontSize: 30,
@@ -77,13 +79,14 @@ class _homepageState extends State<homepage> {
                     child: InkWell(
                         onTap: () async {
                           final pref = await SharedPreferences.getInstance();
-                          final showhome = pref.getBool('showHome') ?? true;
+                          pref.setBool('showHome', false);
+                          name = "";
                           Navigator.pushReplacement(context,
                               MaterialPageRoute(builder: (context) {
                             return onBoardingScreen();
                           }));
                         },
-                        child: Icon(Icons.person_2)))
+                        child: Icon(Icons.logout)))
               ],
             ),
           ),
@@ -145,29 +148,96 @@ class _homepageState extends State<homepage> {
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
-                Category_card(
-                  categoryname: "Organic waste",
-                  iconImage: "assets/images/4.png",
+                InkWell(
+                  onTap: () {
+                    showModalBottomSheet(
+                      context: context,
+                      builder: (context) {
+                        return Mycol(
+                            text: "hello",
+                            iconimage: "assets/images/row-1.jpg");
+                      },
+                    );
+                  },
+                  child: Category_card(
+                    categoryname: "Organic waste",
+                    iconImage: "assets/images/4.png",
+                  ),
                 ),
-                Category_card(
-                  categoryname: "Electronic Waste",
-                  iconImage: "assets/images/5.png",
+                InkWell(
+                  onTap: () {
+                    showModalBottomSheet(
+                      context: context,
+                      builder: (context) {
+                        return Mycol(
+                            text: "hello", iconimage: "assets/images/4.png");
+                      },
+                    );
+                  },
+                  child: Category_card(
+                    categoryname: "Electronic Waste",
+                    iconImage: "assets/images/5.png",
+                  ),
                 ),
-                Category_card(
-                  categoryname: "Batteries",
-                  iconImage: "assets/images/6.png",
+                InkWell(
+                  onTap: () {
+                    showModalBottomSheet(
+                      context: context,
+                      builder: (context) {
+                        return Mycol(
+                            text: "hello", iconimage: "assets/images/4.png");
+                      },
+                    );
+                  },
+                  child: Category_card(
+                    categoryname: "Batteries",
+                    iconImage: "assets/images/6.png",
+                  ),
                 ),
-                Category_card(
-                  categoryname: "cloths",
-                  iconImage: "assets/images/7.png",
+                InkWell(
+                  onTap: () {
+                    showModalBottomSheet(
+                      context: context,
+                      builder: (context) {
+                        return Mycol(
+                            text: "hello", iconimage: "assets/images/4.png");
+                      },
+                    );
+                  },
+                  child: Category_card(
+                    categoryname: "cloths",
+                    iconImage: "assets/images/7.png",
+                  ),
                 ),
-                Category_card(
-                  categoryname: "glass",
-                  iconImage: "assets/images/9.png",
+                InkWell(
+                  onTap: () {
+                    showModalBottomSheet(
+                      context: context,
+                      builder: (context) {
+                        return Mycol(
+                            text: "hello", iconimage: "assets/images/4.png");
+                      },
+                    );
+                  },
+                  child: Category_card(
+                    categoryname: "glass",
+                    iconImage: "assets/images/9.png",
+                  ),
                 ),
-                Category_card(
-                  categoryname: "Medical Waste",
-                  iconImage: "assets/images/10.png",
+                InkWell(
+                  onTap: () {
+                    showModalBottomSheet(
+                      context: context,
+                      builder: (context) {
+                        return Mycol(
+                            text: "hello", iconimage: "assets/images/4.png");
+                      },
+                    );
+                  },
+                  child: Category_card(
+                    categoryname: "Medical Waste",
+                    iconImage: "assets/images/10.png",
+                  ),
                 ),
               ],
             ),
